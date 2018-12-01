@@ -3,17 +3,21 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>Hackathon</title>
-		<script src="//cdn.jsdelivr.net/npm/phaser-ce@2.10.6"></script>
+		<script src="//cdn.jsdelivr.net/npm/phaser-ce@2.11.1"></script>
 		<script src="Boot.js"></script>
 		<script src="Preloader.js"></script>
+		<script src="StartScreen.js"></script>
 	</head>
 	
 <body>
 <script type="text/javascript">
 	
 	var game = new Phaser.Game(256, 240, Phaser.AUTO, '');
-	game.state.add('Boot', Game.Boot);
-	game.state.add('Preloader', Game.Preloader);
+	game.state.add('Boot', Boot);
+	game.state.add('Preloader', Preloader);
+	game.state.add('StartScreen', StartScreen);
+	
+	game.state.start('Boot');
 	
 	var keys;
 	var cursors;
