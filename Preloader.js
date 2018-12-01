@@ -11,6 +11,7 @@ Preloader.prototype = {
 		this.load.image('poof1', 'assets/poof1.png');
 		this.load.image('invisWall', 'assets/invisWall.png');
 		this.load.image('spikes', 'assets/spikes.png');
+		this.load.image('bullet', 'assets/Bullet.png');
 		
 		this.load.spritesheet('player', 'assets/Player.png', 16, 16);
 		this.load.spritesheet('enemy1', 'assets/enemy1.png', 16, 16);
