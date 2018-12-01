@@ -9,6 +9,7 @@ Preloader.prototype = {
 		
 		this.load.image('startScreen', 'assets/startScreen.png');
 		
+		this.load.spritesheet('player', 'assets/Player.png', 16, 16);
 		this.load.spritesheet('enemy1', 'assets/enemy1.png', 16, 16);
 		this.load.spritesheet('walls', 'assets/walls.png', 16, 16);
 	},
