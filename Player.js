@@ -22,7 +22,7 @@ var Player = {
 		{
 			this.nextFire = game.time.now + 200;
 			var bullet = bullets.getFirstDead();
-			bullet.reset(player.x - 8, player.y - 8);
+			bullet.reset(player.x + 16, player.y + 6);
 			bullet.body.velocity.x = 300;
 		}
 	},
