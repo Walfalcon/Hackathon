@@ -20,13 +20,14 @@ var Enemy1 = {
 	
 	update: function (stage) {
 		game.physics.arcade.collide(this.enemies, Stage.walls);
+		game.physics.arcade.collide(this.enemies, player);
 		this.enemies.forEachAlive(this.enemyUpdate, this, stage);
 	},
 	
 	enemyUpdate: function (enemy, stage) {
 		//find the tile directly in front of the enemy
 		var tilePos = Math.floor((enemy.scale.x == 1 ? enemy.x - 1 : enemy.x +16)/16) + Math.floor(enemy.y/16)*stage.width;
-		if(stage.stage[tilePos + stage.width] == 0)
+		if(stage.stage[tilePos + stage.width] == 0 || (enemy.scale.x == -1 ? enemy.body.touching.right : enemy.body.touching.left))
 		{
 			enemy.anchor.x = enemy.scale.x == 1 ? 1 : 0;
 			enemy.scale.x = -enemy.scale.x;
