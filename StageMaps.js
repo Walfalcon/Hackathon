@@ -21,7 +21,7 @@ codes
 
 
 var stages = {
-	stage1: {
+	stage1: [
 		00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,
 		07,02,02,02,02,02,02,02,02,02,02,02,02,02,02,04,
 		03,00,00,00,00,00,00,00,00,00,00,00,00,00,00,03,
@@ -37,7 +37,7 @@ var stages = {
 		03,00,99,00,00,00,00,00,00,00,00,00,00,07,05,00,
 		06,02,02,02,02,02,02,02,02,02,02,02,02,05,00,00,
 		00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
-	},
+	],
 	
 	stage1Width: 16
 };
@@ -71,6 +71,8 @@ var Stage = {
 				let wall = this.walls.create(x*16, y*16, 'walls');
 				wall.body.immovable = true;
 				wall.frame = 1;
+				wall.pivot.x = 8;
+				wall.pivot.y = 8;
 				wall.rotation = Math.PI/2;
 			}
 			else if(i == 04)
@@ -84,6 +86,8 @@ var Stage = {
 				let wall = this.walls.create(x*16, y*16, 'walls');
 				wall.body.immovable = true;
 				wall.frame = 2;
+				wall.pivot.x = 8;
+				wall.pivot.y = 8;
 				wall.rotation = Math.PI/2;
 			}
 			else if(i == 06)
@@ -91,6 +95,8 @@ var Stage = {
 				let wall = this.walls.create(x*16, y*16, 'walls');
 				wall.body.immovable = true;
 				wall.frame = 2;
+				wall.pivot.x = 8;
+				wall.pivot.y = 8;
 				wall.rotation = Math.PI;
 			}
 			else if(i == 07)
@@ -98,6 +104,8 @@ var Stage = {
 				let wall = this.walls.create(x*16, y*16, 'walls');
 				wall.body.immovable = true;
 				wall.frame = 2;
+				wall.pivot.x = 8;
+				wall.pivot.y = 8;
 				wall.rotation = -Math.PI/2;
 			}
 			else if(i == 08)
@@ -111,6 +119,8 @@ var Stage = {
 				let wall = this.walls.create(x*16, y*16, 'walls');
 				wall.body.immovable = true;
 				wall.frame = 3;
+				wall.pivot.x = 8;
+				wall.pivot.y = 8;
 				wall.rotation = Math.PI/2;
 			}
 			else if(i == 10)
@@ -118,6 +128,8 @@ var Stage = {
 				let wall = this.walls.create(x*16, y*16, 'walls');
 				wall.body.immovable = true;
 				wall.frame = 3;
+				wall.pivot.x = 8;
+				wall.pivot.y = 8;
 				wall.rotation = Math.PI;
 			}
 			else if(i == 11)
@@ -125,12 +137,21 @@ var Stage = {
 				let wall = this.walls.create(x*16, y*16, 'walls');
 				wall.body.immovable = true;
 				wall.frame = 3;
+				wall.pivot.x = 8;
+				wall.pivot.y = 8;
 				wall.rotation = -Math.PI/2;
 			}
 			
 			else if(i == 99)
 			{
-				
+				Player.create(x*16, y*16);
+			}
+			
+			x++;
+			if(x == stageWidth)
+			{
+				x = 0;
+				y++;
 			}
 		}
 	}

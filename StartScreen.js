@@ -11,7 +11,7 @@ StartScreen.prototype = {
 		if(keys.x.isDown)
 		{
 			this.background.destroy();
-			//this.state.start('Stage1');
+			this.state.start('Stage1');
 		}
 	}
 };

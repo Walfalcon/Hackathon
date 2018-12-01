@@ -1,6 +1,6 @@
 var Player = {
-	create: function() {
-		player = game.add.sprite(16, game.world.height - 150, 'player');
+	create: function(x, y) {
+		player = game.add.sprite(x, y, 'player');
 		game.physics.arcade.enable(player);
 		player.body.bounce.y = 0.2;
 		player.body.gravity.y = 300;
