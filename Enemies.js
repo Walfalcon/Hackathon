@@ -21,6 +21,7 @@ var Enemy1 = {
 	update: function (stage) {
 		game.physics.arcade.collide(this.enemies, Stage.walls);
 		game.physics.arcade.collide(this.enemies, player);
+		game.physics.arcade.collide(this.enemies, bullets, BulletHitEnemy);
 		this.enemies.forEachAlive(this.enemyUpdate, this, stage);
 	},
 	
@@ -33,6 +34,20 @@ var Enemy1 = {
 			enemy.scale.x = -enemy.scale.x;
 		}
 		enemy.body.velocity.x = -enemy.scale.x * this.speed;
+	},
+	
+	destroy: function () {
+		this.enemies.destroy();
 	}
 };
-	
+
+var BulletHitEnemy = function (enemy, bullet) {
+	bullet.kill();
+	enemy.damage(1);
+	if(!enemy.alive && poofs.countDead() > 0)
+	{
+		var poof = poofs.getFirstExists(false);;
+		poof.reset(enemy.scale.x == 1 ? enemy.x : enemy.x - 15, enemy.y);
+		poof.animations.play('poof', null, false, true);
+	}
+};

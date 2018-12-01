@@ -1,15 +1,16 @@
+var poofs;
+
 var Stage1 = function (game) {
 	var stage = null;
-	var poofs = null;
 };
 
 Stage1.prototype = {
 	create: function () {
 		this.stage = stages.stage1;
 		Stage.create(this.stage.stage, this.stage.width);
-		this.poofs = game.add.group();
-		this.poofs.createMultiple(5, 'poof1');
-		this.poofs.forEach(this.poofSetup, this);
+		poofs = game.add.group();
+		poofs.createMultiple(5, 'poof1');
+		poofs.forEach(this.poofSetup, this);
 	},
 	
 	update: function () {
