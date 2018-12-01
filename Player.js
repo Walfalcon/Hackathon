@@ -10,7 +10,7 @@ var Player = {
 	},
 
 	update: function() {
-		//var hitPlatform = game.physics.arcade.collide(player, Stage.walls);
+		var hitPlatform = game.physics.arcade.collide(player, Stage.walls);
 		player.body.velocity.x = 0;
 		player.animations.play('right');
 		if (cursors.right.isDown)
