@@ -23,7 +23,11 @@ var Player = {
 			this.nextFire = game.time.now + 200;
 			var bullet = bullets.getFirstDead();
 			bullet.reset(player.x + 16, player.y + 6);
-			bullet.body.velocity.x = 300;
+			if (player.scale.x > 0) {
+				bullet.body.velocity.x = 300;
+			} else {
+				bullet.body.velocity.x = -300;
+			}
 		}
 	},
 
