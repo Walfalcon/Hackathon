@@ -23,20 +23,20 @@ var Player = {
 
 		if (keys.z.isDown)
 		{
-			player.body.acceleration.y = -200;
+			player.body.velocity.y = -200;
 		}
 
-		if (player.body.acceleration.y > 1 || player.body.velocity < 1) {
-			player.frame = 2;
-		}
-		if (player.body.acceleration.y < 1 && player.body.acceleration.y > -1) {
-			player.frame = 1;
-		}
 		if (player.body.velocity.x < 0) {
 			player.frame = 0;
 		}
 		if (player.body.velocity.x > 0) {
 			player.frame = 0;
+		}
+		if (player.body.velocity.x == 0 && player.body.velocity.y == 0) {
+			player.frame = 1;
+		}
+		if (player.body.velocity.y > 1 || player.body.velocity < 1) {
+			player.frame = 2;
 		}
 	}
 }

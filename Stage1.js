@@ -8,6 +8,6 @@ Stage1.prototype = {
 	},
 	
 	update: function () {
-		
+		Player.update();
 	}
 };
