@@ -13,6 +13,7 @@ Preloader.prototype = {
 	create: function () {
 		cursors = game.input.keyboard.createCursorKeys();
 		keys = game.input.keyboard.addKeys({'z': Phaser.KeyCode.Z, 'x' : Phaser.KeyCode.X, 'esc' : Phaser.KeyCode.ESC});
+		game.stage.backgroundColor = 0xadd8e6;
 		
 		this.state.start('StartScreen');
 	}
