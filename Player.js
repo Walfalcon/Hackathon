@@ -22,10 +22,11 @@ var Player = {
 		{
 			this.nextFire = game.time.now + 200;
 			var bullet = bullets.getFirstDead();
-			bullet.reset(player.x + 16, player.y + 6);
 			if (player.scale.x > 0) {
+				bullet.reset(player.x + 15, player.y + 6);
 				bullet.body.velocity.x = 300;
 			} else {
+				bullet.reset(player.x, player.y + 6);
 				bullet.body.velocity.x = -300;
 			}
 		}
