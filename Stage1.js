@@ -1,13 +1,16 @@
 var Stage1 = function (game) {
-	var walls
+	var stage = null;
 };
 
 Stage1.prototype = {
 	create: function () {
-		Stage.create(stages.stage1, stages.stage1Width);
+		this.stage = stages.stage1;
+		Stage.create(this.stage.stage, this.stage.width);
+		
 	},
 	
 	update: function () {
 		Player.update();
+		Enemy1.update(this.stage);
 	}
 };
