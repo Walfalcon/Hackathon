@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Hackathon</title>
+		<script src="//cdn.jsdelivr.net/npm/phaser-ce@2.10.6"></script>
+		<script src="Boot.js"></script>
+		<script src="Preloader.js"></script>
+	</head>
+	
+<body>
+<script type="text/javascript">
+	
+	var game = new Phaser.Game(256, 240, Phaser.AUTO, '');
+	game.state.add('Boot', Game.Boot);
+	game.state.add('Preloader', Game.Preloader);
+	
+	var keys;
+	var cursors;
+</script>
+</body>
+</html>
