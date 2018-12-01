@@ -26,8 +26,12 @@ var Player = {
 
 		if (player.body.velocity.x < 0) {
 			player.frame = 0;
+			player.scale.x = -1;
+			player.anchor.x = 1;
 		} else if (player.body.velocity.x > 0) {
 			player.frame = 0;
+			player.scale.x = 1;
+			player.anchor.x = 0;
 		}
 		if (player.body.velocity.x == 0 && player.body.touching.down) {
 			player.frame = 1;
