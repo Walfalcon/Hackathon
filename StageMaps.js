@@ -57,88 +57,97 @@ var Stage = {
 		{
 			if(i == 01)
 			{
-				let wall = this.walls.create(x*16, y*16, 'walls');
+				let wall = this.walls.create(x*16+8, y*16+8, 'walls');
 				wall.body.immovable = true;
+				wall.anchor.x = 0.5;
+				wall.anchor.y = 0.5;
 			}
 			else if(i == 02)
 			{
-				let wall = this.walls.create(x*16, y*16, 'walls');
+				let wall = this.walls.create(x*16+8, y*16+8, 'walls');
 				wall.body.immovable = true;
 				wall.frame = 1;
+				wall.anchor.x = 0.5;
+				wall.anchor.y = 0.5;
+
 			}
 			else if(i == 03)
 			{
-				let wall = this.walls.create(x*16, y*16, 'walls');
+				let wall = this.walls.create(x*16+8, y*16+8, 'walls');
 				wall.body.immovable = true;
 				wall.frame = 1;
-				wall.pivot.x = 8;
-				wall.pivot.y = 8;
+				wall.anchor.x = 0.5;
+				wall.anchor.y = 0.5;
 				wall.rotation = Math.PI/2;
 			}
 			else if(i == 04)
 			{
-				let wall = this.walls.create(x*16, y*16, 'walls');
+				let wall = this.walls.create(x*16+8, y*16+8, 'walls');
 				wall.body.immovable = true;
 				wall.frame = 2;
+				wall.anchor.x = 0.5;
+				wall.anchor.y = 0.5;
 			}
 			else if(i == 05)
 			{
-				let wall = this.walls.create(x*16, y*16, 'walls');
+				let wall = this.walls.create(x*16+8, y*16+8, 'walls');
 				wall.body.immovable = true;
 				wall.frame = 2;
-				wall.pivot.x = 8;
-				wall.pivot.y = 8;
+				wall.anchor.x = 0.5;
+				wall.anchor.y = 0.5;
 				wall.rotation = Math.PI/2;
 			}
 			else if(i == 06)
 			{
-				let wall = this.walls.create(x*16, y*16, 'walls');
+				let wall = this.walls.create(x*16+8, y*16+8, 'walls');
 				wall.body.immovable = true;
 				wall.frame = 2;
-				wall.pivot.x = 8;
-				wall.pivot.y = 8;
+				wall.anchor.x = 0.5;
+				wall.anchor.y = 0.5;
 				wall.rotation = Math.PI;
 			}
 			else if(i == 07)
 			{
-				let wall = this.walls.create(x*16, y*16, 'walls');
+				let wall = this.walls.create(x*16+8, y*16+8, 'walls');
 				wall.body.immovable = true;
 				wall.frame = 2;
-				wall.pivot.x = 8;
-				wall.pivot.y = 8;
+				wall.anchor.x = 0.5;
+				wall.anchor.y = 0.5;
 				wall.rotation = -Math.PI/2;
 			}
 			else if(i == 08)
 			{
-				let wall = this.walls.create(x*16, y*16, 'walls');
+				let wall = this.walls.create(x*16+8, y*16+8, 'walls');
 				wall.body.immovable = true;
 				wall.frame = 3;
+				wall.anchor.x = 0.5;
+				wall.anchor.y = 0.5
 			}
 			else if(i == 09)
 			{
-				let wall = this.walls.create(x*16, y*16, 'walls');
+				let wall = this.walls.create(x*16+8, y*16+8, 'walls');
 				wall.body.immovable = true;
 				wall.frame = 3;
-				wall.pivot.x = 8;
-				wall.pivot.y = 8;
+				wall.anchor.x = 0.5;
+				wall.anchor.y = 0.5;
 				wall.rotation = Math.PI/2;
 			}
 			else if(i == 10)
 			{
-				let wall = this.walls.create(x*16, y*16, 'walls');
+				let wall = this.walls.create(x*16+8, y*16+8, 'walls');
 				wall.body.immovable = true;
 				wall.frame = 3;
-				wall.pivot.x = 8;
-				wall.pivot.y = 8;
+				wall.anchor.x = 0.5;
+				wall.anchor.y = 0.5;
 				wall.rotation = Math.PI;
 			}
 			else if(i == 11)
 			{
-				let wall = this.walls.create(x*16, y*16, 'walls');
+				let wall = this.walls.create(x*16+8, y*16+8, 'walls');
 				wall.body.immovable = true;
 				wall.frame = 3;
-				wall.pivot.x = 8;
-				wall.pivot.y = 8;
+				wall.anchor.x = 0.5;
+				wall.anchor.y = 0.5;
 				wall.rotation = -Math.PI/2;
 			}
 			
