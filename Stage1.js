@@ -3,7 +3,7 @@ var currentStage;
 var enterDoor;
 
 var Stage1 = function (game) {
-	
+	var song = null;
 };
 
 Stage1.prototype = {
@@ -13,6 +13,8 @@ Stage1.prototype = {
 		poofs = game.add.group();
 		poofs.createMultiple(5, 'poof1');
 		poofs.forEach(this.poofSetup, this);
+		game.sound.add('song', 1, true);
+		game.sound.play('song', 1, true);
 	},
 	
 	update: function () {
