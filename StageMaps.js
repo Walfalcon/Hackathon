@@ -110,6 +110,9 @@ var Stage = {
 		this.spikes = game.add.group();
 		this.spikes.enableBody = true;
 		
+		Enemy1.enemies = game.add.group();
+		Enemy1.enemies.enableBody = true;
+		
 		var x = 0;
 		var y = 0;
 		

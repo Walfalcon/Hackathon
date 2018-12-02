@@ -6,10 +6,6 @@ var Enemy1 = {
 	gravity: 450,
 	
 	create: function (x, y) {
-		if(this.enemies == null) {
-			this.enemies = game.add.group();
-			this.enemies.enableBody = true;
-		}
 		var enemy = this.enemies.create(x, y, 'enemy1');
 		enemy.body.gravity.y = this.gravity;
 		enemy.maxHealth = this.health;
