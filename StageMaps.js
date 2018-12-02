@@ -239,7 +239,7 @@ var Stage = {
 				if(player == null) Player.create(x*16, y*16);
 				else {
 					player.reset(x*16, y*16);
-					player.health = player.maxHealth;
+					player.health = Player.health;
 				}
 			}
 			
