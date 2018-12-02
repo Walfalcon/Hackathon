@@ -13,6 +13,8 @@ var Player = {
 		player.body.gravity.y = 1200;
 		player.body.collideWorldBounds = true;
 		player.movcooldown = this.movcooldown;
+		player.animations.add('left', [0, 1], 10, true);
+		player.animations.add('right', [0, 1], 10, true);
 
 		bullets = game.add.group();
 		bullets.enableBody = true;
@@ -58,13 +60,14 @@ var Player = {
 			}
 		}
 		player.body.velocity.x = 0;
-		player.animations.play('right');
 		if (cursors.right.isDown && game.time.now > player.movcooldown)
 		{
 			player.body.velocity.x = 150;
+			player.animations.play('left');
 		} else if (cursors.left.isDown && game.time.now > player.movcooldown)
 		{
 			player.body.velocity.x = -150;
+			player.animations.play('right');
 		}
 
 		if (keys.z.isDown && player.body.touching.down && game.time.now > player.movcooldown)
@@ -73,11 +76,11 @@ var Player = {
 		}
 
 		if (player.body.velocity.x < 0) {
-			player.frame = 0;
+			//player.frame = 0;
 			player.scale.x = -1;
 			player.anchor.x = 1;
 		} else if (player.body.velocity.x > 0) {
-			player.frame = 0;
+			//player.frame = 0;
 			player.scale.x = 1;
 			player.anchor.x = 0;
 		}
