@@ -40,6 +40,7 @@ var Player = {
 
 	update: function() {
 		game.physics.arcade.collide(bullets, Stage.walls, BulletHitWall);
+		if(!player.alive) return;
 		var hitPlatform = game.physics.arcade.collide(player, Stage.walls);
 		if(game.physics.arcade.collide(player, Stage.doors))
 		{
@@ -94,6 +95,12 @@ var Player = {
 	damage: function() {
 		player.movcooldown = game.time.now + 300;
 		player.damage(1);
+		if(!player.alive && poofs.countDead() > 0)
+		{
+			var poof = poofs.getFirstExists(false);
+			poof.reset(player.x, player.y);
+			poof.animations.play('poof', null, false, true);
+		}
 		player.body.velocity.y = -100;
 		if (player.body.touching.right) {
 			player.body.velocity.x = -600;
