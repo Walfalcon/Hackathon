@@ -14,6 +14,7 @@ codes
 11 = 3 way wall connector (left)
 12 = door to next room
 13 = invisWall
+14 = spikes
 
 50 = Enemy1 - slug thing
 
@@ -64,7 +65,7 @@ var stages = {
 			13,00,00,00,00,00,00,00,00,00,00,00,00,00,00,12,
 			13,99,00,00,00,00,00,00,00,00,00,00,00,00,00,12,
 			06,02,02,02,02,02,04,00,00,07,04,00,00,07,02,05,
-			00,00,00,00,00,00,03,00,00,11,09,00,00,03,00,00
+			00,00,00,00,00,00,03,14,14,11,09,14,14,03,00,00
 		],
 		width: 16,
 		nextStage: null
@@ -74,17 +75,18 @@ var stages = {
 var Stage = {
 	walls: null,
 	doors: null,
+	spikes: null,
 	
 	create: function (stage, stageWidth) {
-		if(this.walls == null) {
-			this.walls = game.add.group();
-			console.log("boop");
-			this.walls.enableBody = true;
-		}
-		if(this.doors == null) {
-			this.doors = game.add.group();
-			this.doors.enableBody = true;
-		}
+		this.walls = game.add.group();
+		this.walls.enableBody = true;
+		
+		this.doors = game.add.group();
+		this.doors.enableBody = true;
+		
+		this.spikes = game.add.group();
+		this.spikes.enableBody = true;
+		
 		var x = 0;
 		var y = 0;
 		
@@ -194,6 +196,11 @@ var Stage = {
 			{
 				let wall = this.walls.create(x*16, y*16, 'invisWall');
 				wall.body.immovable = true;
+			}
+			else if(i == 14)
+			{
+				let spike = this.spikes.create(x*16, y*16, 'spikes');
+				spike.body.immovable = true;
 			}
 			
 			else if(i == 50)

@@ -45,6 +45,16 @@ var Player = {
 			enterDoor = true;
 			return;
 		}
+		if(game.physics.arcade.collide(player, Stage.spikes))
+		{
+			player.kill();
+			if(poofs.countDead() > 0)
+			{
+				var poof = poofs.getFirstExists(false);
+				poof.reset(player.x, player.y);
+				poof.animations.play('poof', null, false, true);
+			}
+		}
 		player.body.velocity.x = 0;
 		player.animations.play('right');
 		if (cursors.right.isDown && game.time.now > player.movcooldown)
