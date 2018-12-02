@@ -52,6 +52,7 @@ var Player = {
 		if(game.physics.arcade.collide(player, Stage.spikes))
 		{
 			player.kill();
+			dead = true;
 			if(poofs.countDead() > 0)
 			{
 				var poof = poofs.getFirstExists(false);
@@ -112,6 +113,13 @@ var Player = {
 		} else {
 			player.body.velocity.y = -300;
 		}
+	},
+	
+	destroy: function() {
+		bullets.destroy();
+		bullets = null;
+		player.destroy();
+		player = null;
 	}
 }
 
