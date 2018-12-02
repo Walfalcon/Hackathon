@@ -19,11 +19,11 @@ Stage1.prototype = {
 		Player.update();
 		if(enterDoor)
 		{
-					Stage.destroy();
-		Enemy1.destroy();
-		stage = stage.nextStage;
-		Stage.create(stage.stage, stage.width);
-		enterDoor = false;
+			Stage.destroy();
+			Enemy1.destroy();
+			stage = stage.nextStage;
+			Stage.create(stage.stage, stage.width);
+			enterDoor = false;
 			return;
 		}
 		Enemy1.update(stage);
