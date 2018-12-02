@@ -23,6 +23,7 @@ Preloader.prototype = {
 		keys = game.input.keyboard.addKeys({'z': Phaser.KeyCode.Z, 'x' : Phaser.KeyCode.X, 'esc' : Phaser.KeyCode.ESC});
 		game.stage.backgroundColor = 0xadd8e6;
 		stages.stage1.nextStage = stages.stage2;
+		stages.stage2.nextStage = stages.stage3;
 		
 		this.state.start('StartScreen');
 	}

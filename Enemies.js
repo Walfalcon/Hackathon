@@ -38,6 +38,7 @@ var Enemy1 = {
 	
 	destroy: function () {
 		this.enemies.destroy();
+		this.enemies = null;
 	}
 };
 
