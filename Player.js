@@ -1,13 +1,18 @@
 var player;
 
 var Player = {
-		nextFire: 0,
+	nextFire: 0,
+	health: 3,
+	movcooldown: 0,
 	create: function(x, y) {
 		player = game.add.sprite(x, y, 'player');
+		player.maxhealth = this.health
+		player.health = this.health
 		game.physics.arcade.enable(player);
 		player.body.bounce.y = 0.000001;
 		player.body.gravity.y = 1200;
 		player.body.collideWorldBounds = true;
+		player.movcooldown = this.movcooldown;
 
 		bullets = game.add.group();
 		bullets.enableBody = true;
@@ -19,7 +24,6 @@ var Player = {
 	},
 
 	fire: function() {
-		console.log(this.nextFire);
 		if (game.time.now > this.nextFire)
 		{
 			this.nextFire = game.time.now + 200;
@@ -43,15 +47,15 @@ var Player = {
 		}
 		player.body.velocity.x = 0;
 		player.animations.play('right');
-		if (cursors.right.isDown)
+		if (cursors.right.isDown && game.time.now > player.movcooldown)
 		{
 			player.body.velocity.x = 150;
-		} else if (cursors.left.isDown)
+		} else if (cursors.left.isDown && game.time.now > player.movcooldown)
 		{
 			player.body.velocity.x = -150;
 		}
 
-		if (keys.z.isDown && player.body.touching.down)
+		if (keys.z.isDown && player.body.touching.down && game.time.now > player.movcooldown)
 		{
 			player.body.velocity.y = -400;
 		}
@@ -74,6 +78,16 @@ var Player = {
 
 		if (keys.x.isDown) {
 			this.fire();
+		}
+	},
+	damage: function() {
+		player.movcooldown = game.time.now + 300;
+		player.damage(1);
+		player.body.velocity.y = -100;
+		if (player.body.touching.right) {
+			player.body.velocity.x = -600;
+		} else {
+			player.body.velocity.x = 600;
 		}
 	}
 }

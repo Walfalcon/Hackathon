@@ -20,7 +20,7 @@ var Enemy1 = {
 	
 	update: function (stage) {
 		game.physics.arcade.collide(this.enemies, Stage.walls);
-		game.physics.arcade.collide(this.enemies, player);
+		game.physics.arcade.collide(this.enemies, player, Player.damage);
 		game.physics.arcade.collide(this.enemies, bullets, BulletHitEnemy);
 		this.enemies.forEachAlive(this.enemyUpdate, this, stage);
 	},
