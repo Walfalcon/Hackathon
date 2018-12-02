@@ -1,3 +1,5 @@
+var player;
+
 var Player = {
 		nextFire: 0,
 	create: function(x, y) {
@@ -33,6 +35,11 @@ var Player = {
 
 	update: function() {
 		var hitPlatform = game.physics.arcade.collide(player, Stage.walls);
+		if(game.physics.arcade.collide(player, Stage.doors))
+		{
+			enterDoor = true;
+			return;
+		}
 		player.body.velocity.x = 0;
 		player.animations.play('right');
 		if (cursors.right.isDown)

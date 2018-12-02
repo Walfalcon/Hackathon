@@ -45,7 +45,7 @@ var stages = {
 			00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00
 		],
 		width: 16,
-		nextStage: this.parent.stage2
+		nextStage: null
 	},
 	
 	stage2: {
@@ -202,7 +202,8 @@ var Stage = {
 			
 			else if(i == 99)
 			{
-				Player.create(x*16, y*16);
+				if(player == null) Player.create(x*16, y*16);
+				else player.reset(x*16, y*16);
 			}
 			
 			x++;
@@ -212,5 +213,10 @@ var Stage = {
 				y++;
 			}
 		}
+	},
+	
+	destroy: function () {
+		this.walls.destroy();
+		this.doors.destroy();
 	}
 }
