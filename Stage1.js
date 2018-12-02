@@ -1,5 +1,5 @@
 var poofs;
-var stage;
+var currentStage;
 var enterDoor;
 
 var Stage1 = function (game) {
@@ -8,8 +8,8 @@ var Stage1 = function (game) {
 
 Stage1.prototype = {
 	create: function () {
-		stage = stages.stage1;
-		Stage.create(stage.stage, stage.width);
+		currentStage = stages.stage1;
+		Stage.create(currentStage.stage, currentStage.width);
 		poofs = game.add.group();
 		poofs.createMultiple(5, 'poof1');
 		poofs.forEach(this.poofSetup, this);
@@ -19,25 +19,17 @@ Stage1.prototype = {
 		Player.update();
 		if(enterDoor)
 		{
-			Stage.destroy();
 			Enemy1.destroy();
-			stage = stage.nextStage;
-			Stage.create(stage.stage, stage.width);
+			currentStage = currentStage.nextStage;
+			Stage.destroy();
+			Stage.create(currentStage.stage, currentStage.width);
 			enterDoor = false;
 			return;
 		}
-		Enemy1.update(stage);
+		Enemy1.update(currentStage);
 	},
 	
 	poofSetup: function (poof) {
 		poof.animations.add('poof', [0], 4);
-	},
-	
-	enterDoor: function() {
-		Stage.destroy();
-		Enemy1.destroy();
-		stage = stage.nextStage;
-		Stage.create(stage.stage, stage.width);
-		enterDoor = false;
 	}
 };

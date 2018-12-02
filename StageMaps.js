@@ -78,6 +78,7 @@ var Stage = {
 	create: function (stage, stageWidth) {
 		if(this.walls == null) {
 			this.walls = game.add.group();
+			console.log("boop");
 			this.walls.enableBody = true;
 		}
 		if(this.doors == null) {
@@ -217,6 +218,8 @@ var Stage = {
 	
 	destroy: function () {
 		this.walls.destroy();
+		this.walls = null;
 		this.doors.destroy();
+		this.doors = null;
 	}
 }
