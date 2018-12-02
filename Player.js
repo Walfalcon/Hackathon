@@ -107,8 +107,10 @@ var Player = {
 		player.body.velocity.y = -100;
 		if (player.body.touching.right) {
 			player.body.velocity.x = -600;
-		} else {
+		} else if (player.body.touching.left) {
 			player.body.velocity.x = 600;
+		} else {
+			player.body.velocity.y = -300;
 		}
 	}
 }
