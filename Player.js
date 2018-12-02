@@ -39,6 +39,7 @@ var Player = {
 	},
 
 	update: function() {
+		game.physics.arcade.collide(bullets, Stage.walls, BulletHitWall);
 		var hitPlatform = game.physics.arcade.collide(player, Stage.walls);
 		if(game.physics.arcade.collide(player, Stage.doors))
 		{
@@ -102,3 +103,6 @@ var Player = {
 	}
 }
 
+var BulletHitWall = function (bullet, wall) {
+	bullet.kill();
+}
