@@ -12,6 +12,7 @@ Preloader.prototype = {
 		this.load.image('invisWall', 'assets/invisWall.png');
 		this.load.image('spikes', 'assets/spikes.png');
 		this.load.image('bullet', 'assets/Bullet.png');
+		this.load.image('WIN', 'assets/WIN.png');
 		
 		this.load.audio('song', 'assets/untitled.opus');
 		
@@ -26,6 +27,7 @@ Preloader.prototype = {
 		game.stage.backgroundColor = 0xadd8e6;
 		stages.stage1.nextStage = stages.stage2;
 		stages.stage2.nextStage = stages.stage3;
+		stages.stage3.nextStage = stages.stage4;
 		
 		this.state.start('StartScreen');
 	}
