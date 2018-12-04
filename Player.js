@@ -101,6 +101,7 @@ var Player = {
 		player.damage(1);
 		if(!player.alive && poofs.countDead() > 0)
 		{
+			dead = true;
 			var poof = poofs.getFirstExists(false);
 			poof.reset(player.x, player.y);
 			poof.animations.play('poof', null, false, true);
